@@ -70,10 +70,10 @@ brew install chezmoi
 ### 2. Apply
 
 ```sh
-chezmoi init --apply Xaden-son
+chezmoi init --apply bugrackm
 ```
 
-This clones `github.com/Xaden-son/dotfiles` (use `Xaden-son/<repo>` if the
+This clones `github.com/bugrackm/dotfiles` (use `bugrackm/<repo>` if the
 repo has another name), asks for the git email once, detects the profile,
 installs packages/tools and writes the dotfiles. On `zorin` apt asks for the
 sudo password; without sudo rights it warns and continues.
