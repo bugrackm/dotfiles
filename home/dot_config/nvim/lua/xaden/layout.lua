@@ -102,13 +102,8 @@ vim.api.nvim_create_autocmd("QuitPre", {
 	end,
 })
 
--- Jump straight into insert mode whenever a terminal window gets focus.
-vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
-	pattern = "term://*",
-	callback = function()
-		vim.cmd("startinsert")
-	end,
-})
+-- Focusing a terminal window stays in normal mode; press i/a to type.
+-- (New terminals from <leader>tt / <leader>tv still start in insert mode.)
 
 -- Auto-build the layout only when nvim was started with a single directory
 -- argument (`nvim .` / `nvim some/dir`). Plain `nvim` or `nvim file.c` must
