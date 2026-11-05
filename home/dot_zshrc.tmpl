@@ -120,6 +120,7 @@ alias gpl='git pull'
 {{- if eq .profile "zorin" }}
 alias sudoup="sudo apt update && sudo apt upgrade -y"
 alias cnvpdf='libreoffice --headless --convert-to pdf'
+alias cdr="cd ~/Desktop/Riorson"
 {{- else if eq .profile "mac" }}
 alias brewup='brew update && brew upgrade && brew cleanup'
 # LibreOffice cask installs the "soffice" command wrapper

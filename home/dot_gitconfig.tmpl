@@ -1,3 +1,9 @@
 [user]
 	name = Xaden-son
 	email = {{ .email }}
+{{- /* XadenOS global commit-msg hook (strips AI attribution); only where the vault exists. */}}
+{{- $hooks := joinPath .chezmoi.homeDir "Documents/XadenOS/runtime/git-hooks" }}
+{{- if stat $hooks }}
+[core]
+	hooksPath = {{ $hooks }}
+{{- end }}
