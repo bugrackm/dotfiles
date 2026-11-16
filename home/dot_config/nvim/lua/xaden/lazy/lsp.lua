@@ -13,6 +13,12 @@ return {
 				},
 			})
 
+			-- Never add #include lines on its own when a completion is accepted,
+			-- and complete functions as plain "name()" without argument placeholders.
+			vim.lsp.config("clangd", {
+				cmd = { "clangd", "--header-insertion=never", "--function-arg-placeholders=0" },
+			})
+
 			-- Standalone .java files (no pom.xml/gradle/.git) get only syntax errors,
 			-- so fall back to the file's folder as the project root.
 			vim.lsp.config("jdtls", {
