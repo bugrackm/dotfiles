@@ -39,11 +39,19 @@ vim.keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>i")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- VS Code-style editing
--- Delete a word with Alt/Ctrl+Backspace (backward) or Alt/Ctrl+Delete (forward) in insert mode.
-vim.keymap.set("i", "<M-BS>", "<C-w>")
+-- Delete a word with Alt/Ctrl+Backspace (backward) or Alt/Ctrl+Delete (forward) in insert mode
+-- (Alt+Backspace also on the command line).
+vim.keymap.set({ "i", "c" }, "<M-BS>", "<C-w>")
 vim.keymap.set("i", "<C-BS>", "<C-w>")
 vim.keymap.set("i", "<M-Del>", "<C-o>dw")
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
+
+-- Alt+Left/Right jumps a word back/forward (Option+arrows on macOS).
+-- Unmapped, Neovim reads Alt+key as <Esc> plus the key and leaves insert mode
+-- (or cancels the command line). <C-Left> rather than <S-Left>, because
+-- keymodel=startsel makes shifted arrows start a selection.
+vim.keymap.set({ "i", "c" }, "<M-Left>", "<C-Left>")
+vim.keymap.set({ "i", "c" }, "<M-Right>", "<C-Right>")
 
 -- Shift+arrows select text; typing or Backspace replaces/deletes the selection.
 vim.opt.keymodel = "startsel,stopsel"
